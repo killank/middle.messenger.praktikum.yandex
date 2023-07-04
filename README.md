@@ -1,5 +1,5 @@
 ### Ссылка на Figma
-![Figma](https://www.figma.com/file/48wwA10uEgFwqQ9wd4Guy8/Yandex-Practicum-Messenger?type=design&node-id=0%3A1&mode=design&t=9VgeWn9XJb179LPq-1)
+[Figma](https://www.figma.com/file/48wwA10uEgFwqQ9wd4Guy8/Yandex-Practicum-Messenger?type=design&node-id=0%3A1&mode=design&t=9VgeWn9XJb179LPq-1)
 
 
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
