@@ -12,4 +12,4 @@ const Link = (children: string, href: string) => {
     });
 };
 
-export default Link
+export default Link;
