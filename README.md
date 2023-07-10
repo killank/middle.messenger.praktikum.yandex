@@ -10,7 +10,7 @@ LESS, Handlebars
 18.16.1
 
 ### Для запуска локальной дев версии
-npm run dev
+#### npm run dev
 
 ### Для раздачи статистических данных локально
-npm run start
+#### npm run start

@@ -1,0 +1,79 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .leftCol {
+        width: 28%;
+        height: 100%;
+        background: #FBFBFB;
+        .searchBlock {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            a {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .rightCol {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            width: 100%;
+            border-bottom: 1px solid #EAEAEA;
+            padding: 0 20px;
+            box-sizing: border-box;
+            .userInfo {
+                display: flex;
+                align-items: center;
+                .avatar {
+                    width: 47px;
+                    height: 47px;
+                    border-radius: 47px;
+                    background: #EFEFEF;
+                    margin-right: 16px;
+                }
+                .user {
+                    color: #1E1E1E;
+                    font-size: 13px;
+                    font-weight: 600;
+                    line-height: 13px;
+                }
+            }
+        }
+        .messages {
+            flex: 1;
+        }
+        .footer {
+            bottom: 0;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #EAEAEA;
+            padding: 0 20px;
+            box-sizing: border-box;
+            .inputMessage {
+                height: 32px;
+                width: 85%;
+                border-radius: 30px;
+                background: #EFEFEF;
+                display: flex;
+                align-items: center;
+                padding: 8px 20px;
+                box-sizing: border-box;
+                color: #999;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 12px;
+            }
+        }
+    }
+}

@@ -8,6 +8,9 @@ export default defineConfig({
             partialDirectory: resolve(__dirname, 'src/partials'),
           }) as Plugin
     ],
+    server: {
+        port: 3000
+    },
     css: {
         preprocessorOptions: {
         less: {
