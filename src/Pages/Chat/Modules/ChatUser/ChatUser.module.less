@@ -2,17 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(189, 189, 189, 0.14);
+    border-bottom: 1px solid var(--border-gray);
     padding: 8px;
-    background: #FBFBFB;
+    background: var(--bg-gray);
     &:hover {
-        background: #D3DEFB;
+        background: var(--light-blue);
     }
     .avatar {
         width: 47px;
         height: 47px;
         border-radius: 47px;
-        background: #EFEFEF;
+        background: var(--light-gray);
     }
     .text {
         display: flex;
@@ -23,13 +23,12 @@
             display: flex;
             justify-content: space-between;
             .user {
-                color: #1E1E1E;
                 font-size: 13px;
                 font-weight: 600;
                 line-height: 13px;
             }
             .time {
-                color: #999;
+                color: var(--gray);
                 font-size: 9px;
                 font-weight: 500;
                 line-height: 13px;
@@ -39,7 +38,7 @@
             display: flex;
             justify-content: space-between;
             .message {
-                color: #b6b6b6;
+                color: var(--gray);
                 font-size: 12px;
                 font-weight: 500;
                 line-height: 20px;
@@ -52,11 +51,11 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: 30px;
-                background: #2F80ED;
+                background: var(--blue);
                 font-size: 9px;
                 font-weight: 500;
                 line-height: 13px;
-                color: #FEFEFE;
+                color: var(--white);
             }
         }
     }

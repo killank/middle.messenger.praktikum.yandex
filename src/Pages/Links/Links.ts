@@ -9,7 +9,8 @@ const Links = () => {
         wrapperClass: styles.wrapper,
         titleText: "Ссылки",
         titleClass: styles.title,
-        linksClass: styles.links
+        linksClass: styles.links,
+        pageLinksClass: styles.pageLinks
     });
 };
 

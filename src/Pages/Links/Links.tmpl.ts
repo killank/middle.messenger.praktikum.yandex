@@ -1,18 +1,35 @@
 import {Link} from '../../Components';
 
 export default `
-    <div class="{{wrapperClass}}">
-        <div class="{{linksClass}}">
-            <span class="{{titleClass}}">
-                {{titleText}}
-            </span>
-            ${Link("500", "/500")}
-            ${Link("404", "/404")}
-            ${Link("Логин", "/login")}
-            ${Link("Регистрация", "/registration")}
-            ${Link("Профиль", "/profile")}
-            ${Link("Чат", "/chat")}
+    <main>
+        <div class="{{wrapperClass}}">
+            <div class="{{linksClass}}">
+                <h2 class="{{titleClass}}">
+                    {{titleText}}
+                </h2>
+                <nav>
+                    <ul class="{{pageLinksClass}}">
+                        <li>
+                            ${Link("500", "/500")}
+                        </li>
+                        <li>
+                            ${Link("404", "/404")}
+                        </li>
+                        <li>
+                            ${Link("Логин", "/login")}
+                        </li>
+                        <li>
+                            ${Link("Регистрация", "/registration")}
+                        </li>
+                        <li>
+                            ${Link("Профиль", "/profile")}
+                        </li>
+                        <li>
+                            ${Link("Чат", "/chat")}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-
-    </div>
+    </main>
 `;
