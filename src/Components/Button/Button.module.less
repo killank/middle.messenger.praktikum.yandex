@@ -1,0 +1,22 @@
+.button {
+    border-radius: 8px;
+    border: none;
+    background: var(--blue);
+    height: 37px;
+    width: 280px;
+    color: var(--white);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 13px;
+    box-sizing: border-box;
+    &:hover {
+        background: var(--hover-blue);
+    }
+    &:active {
+        -webkit-box-shadow: 0px 0px 5px var(--shadow-blue);
+        -moz-box-shadow: 0px 0px 5px var(--shadow-blue);
+        box-shadow: 0px 0px 5px var(--shadow-blue);
+    }
+}

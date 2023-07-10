@@ -1,0 +1,53 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .leftCol {
+        width: 60px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-gray);
+        border-right: 1px solid var(--light-gray);
+    }
+    .rightCol {
+        width: 100%;
+        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        .avatarBlock {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            .avatar {
+                width: 130px;
+                height: 130px;
+                border-radius: 65px;
+                background-color: var(--gray);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 24px;
+            }
+        }
+        .editComponent {
+            .form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                div {
+                    margin-bottom: 16px;
+                }
+                button {
+                    margin-top: 24px;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+}
