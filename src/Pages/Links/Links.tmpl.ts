@@ -1,4 +1,4 @@
-import {Link} from '../../Components';
+import {Link} from "../../Components";
 
 export default `
     <main>

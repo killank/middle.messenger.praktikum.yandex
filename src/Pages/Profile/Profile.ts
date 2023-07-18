@@ -1,6 +1,6 @@
-import Handlebars from 'handlebars';
-import ProfileTmpl from './Profile.tmpl.ts';
-import styles from './Profile.module.less';
+import Handlebars from "handlebars";
+import ProfileTmpl from "./Profile.tmpl.ts";
+import styles from "./Profile.module.less";
 
 const Profile = () => {
     const template = Handlebars.compile(ProfileTmpl);

@@ -1,6 +1,6 @@
-import Handlebars from 'handlebars';
-import ChatTmpl from './Chat.tmpl.ts';
-import styles from './Chat.module.less';
+import Handlebars from "handlebars";
+import ChatTmpl from "./Chat.tmpl.ts";
+import styles from "./Chat.module.less";
 
 const Chat = () => {
     const template = Handlebars.compile(ChatTmpl);

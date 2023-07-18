@@ -1,6 +1,6 @@
-import Handlebars from 'handlebars';
-import ErrorTmpl from './Error.tmpl.ts';
-import styles from './Error.module.less';
+import Handlebars from "handlebars";
+import ErrorTmpl from "./Error.tmpl.ts";
+import styles from "./Error.module.less";
 
 const Error = (title: string, subtitle: string) => {
     const template = Handlebars.compile(ErrorTmpl);

@@ -1,9 +1,9 @@
-import ChatUser from './Modules/ChatUser/ChatUser';
-import Settings from '../../Icons/Settings.svg';
-import Menu from '../../Icons/Menu.svg';
-import Upload from '../../Icons/Upload.svg';
-import SendMessage from '../../Icons/SendMessage.svg';
-import {Input} from '../../Components';
+import ChatUser from "./Modules/ChatUser/ChatUser";
+import Settings from "../../Icons/Settings.svg";
+import Menu from "../../Icons/Menu.svg";
+import Upload from "../../Icons/Upload.svg";
+import SendMessage from "../../Icons/SendMessage.svg";
+import {Input} from "../../Components";
 
 export default `
     <main>

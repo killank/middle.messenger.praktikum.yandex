@@ -1,4 +1,4 @@
-import {Button, Input, Link} from '../../Components';
+import {Button, Input, Link} from "../../Components";
 
 export default `
     <main>

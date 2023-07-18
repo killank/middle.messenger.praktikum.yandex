@@ -1,1 +1,1 @@
-export default `<a class="{{class}}" href="{{href}}">{{children}}</a>`;
+export default "<a class=\"{{class}}\" href=\"{{href}}\">{{children}}</a>";

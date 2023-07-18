@@ -1,6 +1,6 @@
-import {Button, Input, Link} from '../../Components';
-import BackArrow from '../../Icons/BackArrow.svg';
-import Image from '../../Icons/Image.svg';
+import {Button, Input, Link} from "../../Components";
+import BackArrow from "../../Icons/BackArrow.svg";
+import Image from "../../Icons/Image.svg";
 
 export default `
     <main>

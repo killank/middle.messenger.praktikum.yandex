@@ -1,6 +1,6 @@
-import Handlebars from 'handlebars';
-import RegistrationTmpl from './Registration.tmpl.ts';
-import styles from './Registration.module.less';
+import Handlebars from "handlebars";
+import RegistrationTmpl from "./Registration.tmpl.ts";
+import styles from "./Registration.module.less";
 
 const Registration = () => {
     const template = Handlebars.compile(RegistrationTmpl);

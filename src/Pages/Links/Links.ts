@@ -1,6 +1,6 @@
-import Handlebars from 'handlebars';
-import LinksTmpl from './Links.tmpl.ts';
-import styles from './Links.module.less';
+import Handlebars from "handlebars";
+import LinksTmpl from "./Links.tmpl.ts";
+import styles from "./Links.module.less";
 
 const Links = () => {
     const template = Handlebars.compile(LinksTmpl);

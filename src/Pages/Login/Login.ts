@@ -1,6 +1,6 @@
-import Handlebars from 'handlebars';
-import LoginTmpl from './Login.tmpl.ts';
-import styles from './Login.module.less';
+import Handlebars from "handlebars";
+import LoginTmpl from "./Login.tmpl.ts";
+import styles from "./Login.module.less";
 
 const Login = () => {
     const template = Handlebars.compile(LoginTmpl);
