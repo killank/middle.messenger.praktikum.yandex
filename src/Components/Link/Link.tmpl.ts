@@ -1,1 +1,3 @@
-export default "<a class=\"{{class}}\" href=\"{{href}}\">{{children}}</a>";
+export const template = `
+    <a class="{{class}}" href="{{href}}">{{children}}</a>
+`;

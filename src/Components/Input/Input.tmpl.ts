@@ -1,4 +1,4 @@
-export default `
+export const template = `
     <div>
         {{#if labelText}}
             <label class="{{labelClass}}">

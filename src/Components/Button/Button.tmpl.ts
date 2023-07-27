@@ -1,1 +1,3 @@
-export default "<button class=\"{{class}}\" type=\"{{type}}\">{{children}}</button>";
+export const template = `
+    <button class="{{class}}" type="{{type}}">{{children}}</button>
+`;

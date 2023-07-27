@@ -1,15 +1,24 @@
-import Handlebars from "handlebars";
-import ButtonTmpl from "./Button.tmpl.ts";
+import {template} from "./Button.tmpl.ts";
 import styles from "./Button.module.less";
+import Block from "../../Utils/Block.ts";
 
-const Button = (children: string, type: string) => {
-    const template = Handlebars.compile(ButtonTmpl);
+type ButtonProps = {
+    type?: "submit",
+    onClick?: (event: Event) => void,
+    children: string
+}
 
-    return template({
-        children,
-        type,
-        class: styles.button
-    });
-};
+class Button extends Block {
+    constructor(props: ButtonProps) {
+        super(props);
+    }
+
+    render() {
+        return this.compile(template, {
+            ...this.props,
+            class: styles.button
+        });
+    }
+}
 
 export default Button;

@@ -1,15 +1,24 @@
-import Handlebars from "handlebars";
-import LinkTmpl from "./Link.tmpl.ts";
+import {template} from "./Link.tmpl.ts";
 import styles from "./Link.module.less";
+import Block from "../../Utils/Block.ts";
 
-const Link = (children: string, href: string) => {
-    const template = Handlebars.compile(LinkTmpl);
+type LinkProps = {
+    children: string,
+    href: string
+}
 
-    return template({
-        children,
-        class: styles.link,
-        href
-    });
-};
+class Link extends Block {
+    constructor(props: LinkProps) {
+        super(props);
+    }
+
+    render() {
+        return this.compile(template, {
+            children: this.props.children,
+            class: styles.link,
+            href: this.props.href
+        });
+    }
+}
 
 export default Link;
