@@ -1,6 +1,4 @@
-import {Link} from "../../Components";
-
-export default `
+export const template = `
     <main>
         <div class="{{wrapperClass}}">
             <div class="{{linksClass}}">
@@ -10,22 +8,22 @@ export default `
                 <nav>
                     <ul class="{{pageLinksClass}}">
                         <li>
-                            ${Link("500", "/500")}
+                            {{{link404}}}
                         </li>
                         <li>
-                            ${Link("404", "/404")}
+                            {{{link500}}}
                         </li>
                         <li>
-                            ${Link("Логин", "/login")}
+                            {{{linkLogin}}}
                         </li>
                         <li>
-                            ${Link("Регистрация", "/registration")}
+                            {{{linkReg}}}
                         </li>
                         <li>
-                            ${Link("Профиль", "/profile")}
+                            {{{linkProf}}}
                         </li>
                         <li>
-                            ${Link("Чат", "/chat")}
+                            {{{linkChat}}}
                         </li>
                     </ul>
                 </nav>

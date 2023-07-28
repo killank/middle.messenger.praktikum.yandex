@@ -53,7 +53,7 @@ function validateData (data: UserData): string {
     }
   
     if (data.email && !isValidEmail(data.email)) {
-        error = "Неправильный формат email. Допустимы только латинские буквы, цифры и символы ._%+- перед @ и после @.";
+        error = "Неправильный формат email.";
     }
   
     if (data.password && !isValidPassword(data.password)) {

@@ -4,8 +4,8 @@ import Block from "../../Utils/Block.ts";
 
 type ButtonProps = {
     type?: "submit",
-    onClick?: (event: Event) => void,
-    children: string
+    children: string,
+    events?: Record<string, (event: Event) => void>;
 }
 
 class Button extends Block {

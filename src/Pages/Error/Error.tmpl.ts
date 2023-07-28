@@ -1,6 +1,4 @@
-import {Link} from "../../Components";
-
-export default `
+export const template = `
     <main>
         <div class="{{wrapperClass}}">
             <h2 class="{{titleClass}}">
@@ -9,7 +7,7 @@ export default `
             <span class="{{subtitleClass}}">
                 {{subtitleText}}
             </span>
-            ${Link("Назад к чатам", "/")}
+            {{{link}}}
         </div>
     </main>
 `;
