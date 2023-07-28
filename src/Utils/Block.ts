@@ -102,34 +102,31 @@ export default class Block {
         return this._element;
     }
 
-    protected compile(template: string, context: any) {
-        const propsAndStubs = {...context};
-        console.log(template, context);
+    protected compile(template: string, props: Record<string, any>) {
+        const propsAndStubs = {...props};
 
-        Object.entries(this.children).forEach(([name, component]) => {
+        Object.entries(this.children).forEach(([key, component]) => {
             if (Array.isArray(component)) {
-                propsAndStubs[name] = component.map((child) => `<div data-id=${child.id}></div>`);
+                propsAndStubs[key] = component.map((child) => `<div data-id=${child.id}></div>`);
             } else {
-                propsAndStubs[name] = `<div data-id=${component.id}></div>`;
+                propsAndStubs[key] = `<div data-id=${component.id}></div>`;
             }
         });
         
         const temp = document.createElement("template");
         temp.innerHTML = Handlebars.compile(template)(propsAndStubs);
 
-        console.log(temp);
-
         Object.entries(this.children).forEach(([_, component]) => {
             if (Array.isArray(component)) {
                 component.forEach((child) => {
                     const stub = temp.content.querySelector(`[data-id="${child.id}"]`);
                     if (!stub) return;
-                    stub.replaceWith(child.element!);
+                    stub.replaceWith(child.getContent());
                 });
             } else {
                 const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
                 if (!stub) return;
-                stub.replaceWith(component.element!);
+                stub.replaceWith(component.getContent());
             }
         });
         return temp.content;
@@ -164,7 +161,6 @@ export default class Block {
     }
 
     public render(): DocumentFragment {
-        console.log("here");
         return new DocumentFragment();
     }
 
