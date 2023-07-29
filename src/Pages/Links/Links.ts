@@ -1,17 +1,55 @@
-import Handlebars from 'handlebars';
-import LinksTmpl from './Links.tmpl.ts';
-import styles from './Links.module.less';
+import {template} from "./Links.tmpl.ts";
+import styles from "./Links.module.less";
+import Block from "../../Utils/Block.ts";
+import {Link} from "../../Components";
 
-const Links = () => {
-    const template = Handlebars.compile(LinksTmpl);
+class Links extends Block {
+    constructor() {
+        const link404 = new Link({
+            children: "404",
+            href: "/404"
+        });
+        const link500 = new Link({
+            children: "500",
+            href: "/500"
+        });
+        const linkLogin = new Link({
+            children: "Логин",
+            href: "/login"
+        });
+        const linkReg = new Link({
+            children: "Регистрация",
+            href: "/registration"
+        });
+        const linkProf = new Link({
+            children: "Профиль",
+            href: "/profile"
+        });
+        const linkChat = new Link({
+            children: "Чат",
+            href: "/chat"
+        });
 
-    return template({
-        wrapperClass: styles.wrapper,
-        titleText: "Ссылки",
-        titleClass: styles.title,
-        linksClass: styles.links,
-        pageLinksClass: styles.pageLinks
-    });
-};
+        super({
+            wrapperClass: styles.wrapper,
+            titleText: "Ссылки",
+            titleClass: styles.title,
+            linksClass: styles.links,
+            pageLinksClass: styles["page-links"],
+            link404,
+            link500,
+            linkLogin,
+            linkReg,
+            linkProf,
+            linkChat
+        });
+    }
+    
+    render() {
+        return this.compile(template, {
+            ...this.props
+        });
+    }
+}
 
 export default Links;

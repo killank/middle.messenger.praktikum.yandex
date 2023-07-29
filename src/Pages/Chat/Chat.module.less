@@ -2,25 +2,30 @@
     height: 100%;
     width: 100%;
     display: flex;
-    .leftCol {
+
+    .left-col {
         width: 28%;
         height: 100%;
         background: var(--bg-gray);
-        .searchBlock {
+
+        .search-block {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 8px;
+
             a {
                 display: flex;
                 align-items: center;
             }
         }
     }
-    .rightCol {
+
+    .right-col {
         width: 100%;
         display: flex;
         flex-direction: column;
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -30,9 +35,11 @@
             border-bottom: 1px solid var(--light-gray);
             padding: 0 20px;
             box-sizing: border-box;
-            .userInfo {
+
+            .user-info {
                 display: flex;
                 align-items: center;
+
                 .avatar {
                     width: 47px;
                     height: 47px;
@@ -40,6 +47,7 @@
                     background: var(--light-light-gray);
                     margin-right: 16px;
                 }
+
                 .user {
                     font-size: 13px;
                     font-weight: 600;
@@ -47,11 +55,14 @@
                 }
             }
         }
+
         .messages {
             flex: 1;
         }
+
         .footer {
             bottom: 0;
+            width: 100%;
             height: 50px;
             display: flex;
             align-items: center;
@@ -59,19 +70,27 @@
             border-top: 1px solid var(--light-gray);
             padding: 0 20px;
             box-sizing: border-box;
-            .inputMessage {
+
+            .input-message {
                 height: 32px;
-                width: 85%;
+                width: 100%;
                 border-radius: 30px;
                 background: var(--light-light-gray);
                 display: flex;
                 align-items: center;
                 padding: 8px 20px;
                 box-sizing: border-box;
-                color: var(--gray);
                 font-size: 12px;
                 font-weight: 500;
                 line-height: 12px;
+                margin: 0 16px;
+            }
+
+            .message-button {
+                width: 28px;
+                height: 28px;
+                border-radius: 28px;
+                background-image: url("../../Icons/SendMessage.svg");
             }
         }
     }
