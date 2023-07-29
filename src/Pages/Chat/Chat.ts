@@ -1,8 +1,11 @@
 import {template} from "./Chat.tmpl.ts";
 import styles from "./Chat.module.less";
 import Block from "../../Utils/Block.ts";
-import {Input} from "../../Components";
+import {Button, Input} from "../../Components";
 import ChatUser from "./Modules/ChatUser/ChatUser.ts";
+import submit from "../../Utils/submit.ts";
+import validate from "../../Utils/validate.ts";
+import InputOnly from "../../Components/Input/Input/InputOnly.ts";
 
 class Chat extends Block {
     constructor() {
@@ -12,6 +15,25 @@ class Chat extends Block {
             type: "text",
             label: ""
         });
+        const messageInput = new InputOnly({
+            name: "message",
+            placeholder: "Сообщение",
+            type: "text",
+            propsInputClass: styles["input-message"],
+            events: {
+                blur: (event) => validate(event)
+            },
+        });
+
+        const button = new Button({
+            children: "",
+            type: "submit",
+            events: {
+                click: (event) => submit(event)
+            },
+            class: styles["message-button"]
+        });
+        
         const chatUser = new ChatUser({
             user: "Вадим",
             last_message: "Привет!",
@@ -33,7 +55,9 @@ class Chat extends Block {
             footerClass: styles.footer,
             inputMessageClass: styles["input-message"],
             searchInput,
-            chatUser
+            chatUser,
+            button,
+            messageInput
         });
     }
 

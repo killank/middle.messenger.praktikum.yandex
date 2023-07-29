@@ -1,3 +1,3 @@
 export const template = `
-    <button class="{{class}}" type="{{type}}">{{children}}</button>
+    <button class="{{class}} {{propsClass}}" type="{{type}}">{{children}}</button>
 `;

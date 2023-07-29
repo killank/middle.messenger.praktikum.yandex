@@ -6,10 +6,12 @@ type UserData = {
     password?: string;
     phone?: string;
     message?: string;
+    oldPassword?: string;
+    newPassword?: string;
 }
   
 function isValidName(name: string): boolean {
-    const nameRegex = /^[А-ЯЁA-Zа-яёa-z\- ]*$/;
+    const nameRegex = /^[А-ЯЁA-Zа-яёa-z\- ]+$/;
     return nameRegex.test(name);
 }
   
@@ -34,37 +36,45 @@ function isValidPhone(phone: string): boolean {
 }
   
 function isValidMessage(message: string): boolean {
-    return message.trim() !== "";
+    return message !== "";
 }
   
 function validateData (data: UserData): string {
     let error: string = "";
   
-    if (data.first_name && !isValidName(data.first_name)) {
+    if (data.first_name !== undefined && !isValidName(data.first_name)) {
         error = "Имя должно содержать только буквы, дефисы и пробелы.";
     }
   
-    if (data.second_name && !isValidName(data.second_name)) {
+    if (data.second_name !== undefined && !isValidName(data.second_name)) {
         error =  "Фамилия должна содержать только буквы, дефисы и пробелы.";
     }
   
-    if (data.login && !isValidLogin(data.login)) {
+    if (data.login !== undefined && !isValidLogin(data.login)) {
         error = "Логин должен быть от 3 до 20 символов и содержать только буквы, цифры, дефис и нижнее подчеркивание.";
     }
   
-    if (data.email && !isValidEmail(data.email)) {
+    if (data.email !== undefined && !isValidEmail(data.email)) {
         error = "Неправильный формат email.";
     }
   
-    if (data.password && !isValidPassword(data.password)) {
+    if (data.password !== undefined && !isValidPassword(data.password)) {
+        error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
+    }
+
+    if (data.newPassword !== undefined && !isValidPassword(data.newPassword)) {
+        error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
+    }
+
+    if (data.oldPassword !== undefined && !isValidPassword(data.oldPassword)) {
         error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
     }
   
-    if (data.phone && !isValidPhone(data.phone)) {
+    if (data.phone !== undefined && !isValidPhone(data.phone)) {
         error = "Неправильный формат номера телефона. Допустимы только цифры и символ + в начале.";
     }
   
-    if (data.message && !isValidMessage(data.message)) {
+    if (data.message !== undefined && !isValidMessage(data.message)) {
         error = "Сообщение не должно быть пустым.";
     }
   

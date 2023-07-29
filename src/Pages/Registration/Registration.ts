@@ -2,6 +2,8 @@ import {template} from "./Registration.tmpl.ts";
 import styles from "./Registration.module.less";
 import Block from "../../Utils/Block.ts";
 import {Button, Input, Link} from "../../Components/";
+import submit from "../../Utils/submit.ts";
+import validate from "../../Utils/validate.ts";
 
 class Registration extends Block {
     constructor() {
@@ -9,47 +11,71 @@ class Registration extends Block {
             name: "login",
             placeholder: "Введите логин",
             type: "text",
-            label: "Логин"
+            label: "Логин",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const passwordInput = new Input({
             name: "password",
             placeholder: "Введите пароль",
             type: "password",
-            label: "Пароль"
+            label: "Пароль",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const passwordRepeatInput = new Input({
             name: "password",
             placeholder: "Повторите пароль",
             type: "password",
-            label: "Повторите пароль"
+            label: "Повторите пароль",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const firstNameInput = new Input({
             name: "first_name",
             placeholder: "Введите имя",
             type: "text",
-            label: "Имя"
+            label: "Имя",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const secondNameInput = new Input({
             name: "second_name",
             placeholder: "Введите фамилию",
             type: "text",
-            label: "Фамилия"
+            label: "Фамилия",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const emailInput = new Input({
             name: "email",
             placeholder: "Введите почту",
             type: "text",
-            label: "Почта"
+            label: "Почта",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const phoneInput = new Input({
             name: "phone",
             placeholder: "Введите телефон",
             type: "phone",
-            label: "Телефон"
+            label: "Телефон",
+            events: {
+                blur: (event) => validate(event)
+            },
         });
         const button = new Button({
             children: "Зарегистрироваться",
-            type: "submit"
+            type: "submit",
+            events: {
+                click: (event) => submit(event)
+            }
         });
         const link = new Link({
             children: "Войти",

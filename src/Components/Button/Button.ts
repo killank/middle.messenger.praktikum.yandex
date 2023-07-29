@@ -5,7 +5,8 @@ import Block from "../../Utils/Block.ts";
 type ButtonProps = {
     type?: "submit",
     children: string,
-    events?: Record<string, (event: Event) => void>;
+    events?: Record<string, (event: Event) => void>,
+    class?: string
 }
 
 class Button extends Block {
@@ -16,7 +17,8 @@ class Button extends Block {
     render() {
         return this.compile(template, {
             ...this.props,
-            class: styles.button
+            class: styles.button,
+            propsClass: this.props.class
         });
     }
 }

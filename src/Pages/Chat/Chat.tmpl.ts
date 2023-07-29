@@ -1,7 +1,6 @@
 import Settings from "../../Icons/Settings.svg";
 import Menu from "../../Icons/Menu.svg";
 import Upload from "../../Icons/Upload.svg";
-import SendMessage from "../../Icons/SendMessage.svg";
 
 export const template = `
     <main>
@@ -32,13 +31,11 @@ export const template = `
                 <div class="{{messagesClass}}">
 
                 </div>
-                <div class="{{footerClass}}">
+                <form class="{{footerClass}}">
                     <img src="${Upload}" alt="Upload button">
-                    <div class="{{inputMessageClass}}">
-                        Сообщение
-                    </div>
-                    <img src="${SendMessage}" alt="Send message button">
-                </div>
+                    {{{messageInput}}}
+                    {{{button}}}
+                </form>
             </div>
         </div>
     </main>
