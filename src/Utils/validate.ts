@@ -11,10 +11,13 @@ const validate = (event: Event): void => {
   
         if (errorMessages) {
             errors[fieldName] = errorMessages;
+            const errorSpan = document.querySelectorAll(`[field="${input.name}"]`)[0];
+            errorSpan.textContent = errors[fieldName];
+        } else {
+            const errorSpan = document.querySelectorAll(`[field="${input.name}"]`)[0];
+            errorSpan.textContent = "";
         }
     });
-    
-    console.log("Input errors", errors);
 };
 
 export default validate;

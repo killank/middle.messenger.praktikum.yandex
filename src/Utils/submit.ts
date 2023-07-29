@@ -10,15 +10,19 @@ const submit = (event: Event): void => {
         const fieldName = input.name;
         const fieldValue = input.value;
         values[fieldName] = fieldValue;
-        const errorMessages = validateData({[fieldName]: fieldValue});
+        const errorMessage = validateData({[fieldName]: fieldValue});
   
-        if (errorMessages) {
-            errors[fieldName] = errorMessages;
+        if (errorMessage) {
+            errors[fieldName] = errorMessage;
+            const errorSpan = document.querySelectorAll(`[field="${input.name}"]`)[0];
+            errorSpan.textContent = errors[fieldName];
+        } else {
+            const errorSpan = document.querySelectorAll(`[field="${input.name}"]`)[0];
+            errorSpan.textContent = "";
         }
     });
     
     console.log("form values", values);
-    console.log("form errors", errors);
 };
 
 export default submit;

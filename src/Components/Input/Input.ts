@@ -26,6 +26,10 @@ class Input extends Block {
         super({
             labelText: props.label,
             labelClass: styles.label,
+            errorClass: styles.error,
+            fieldError: props.name,
+            wrapperClass: styles.wrapper,
+            field: props.name,
             input
         });
     }
