@@ -1,11 +1,8 @@
-import ChatUser from './Modules/ChatUser/ChatUser';
-import Settings from '../../Icons/Settings.svg';
-import Menu from '../../Icons/Menu.svg';
-import Upload from '../../Icons/Upload.svg';
-import SendMessage from '../../Icons/SendMessage.svg';
-import {Input} from '../../Components';
+import Settings from "../../Icons/Settings.svg";
+import Menu from "../../Icons/Menu.svg";
+import Upload from "../../Icons/Upload.svg";
 
-export default `
+export const template = `
     <main>
         <div class="{{wrapperClass}}">
             <div class="{{leftColClass}}">
@@ -13,9 +10,9 @@ export default `
                     <a href="/profile">
                         <img src="${Settings}" alt="Settings button">
                     </a>
-                    ${Input("", "search", "text", "Поиск")}
+                    {{{searchInput}}}
                 </div>
-                ${ChatUser("Вадим", "Привет!", "аватар", "10:43", 4)}
+                {{{chatUser}}}
             </div>
             <div class="{{rightColClass}}">
                 <header class="{{headerClass}}">
@@ -34,13 +31,11 @@ export default `
                 <div class="{{messagesClass}}">
 
                 </div>
-                <div class="{{footerClass}}">
+                <form class="{{footerClass}}">
                     <img src="${Upload}" alt="Upload button">
-                    <div class="{{inputMessageClass}}">
-                        Сообщение
-                    </div>
-                    <img src="${SendMessage}" alt="Send message button">
-                </div>
+                    {{{messageInput}}}
+                    {{{button}}}
+                </form>
             </div>
         </div>
     </main>

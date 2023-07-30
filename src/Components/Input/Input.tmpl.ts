@@ -1,10 +1,11 @@
-export default `
-    <div>
+export const template = `
+    <div class="{{wrapperClass}}">
         {{#if labelText}}
-            <label class="{{labelClass}}">
-                {{labelText}}
-            </label>
+                <label class="{{labelClass}}">
+                    {{labelText}}
+                </label>
         {{/if}}
-        <input class="{{inputClass}}" placeholder="{{placeholder}}" name={{name}} type={{type}}>
+        {{{input}}}
+        <span class="{{errorClass}}" field={{field}}></span>
     </div>
 `;

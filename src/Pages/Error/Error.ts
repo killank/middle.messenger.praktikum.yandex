@@ -1,17 +1,36 @@
-import Handlebars from 'handlebars';
-import ErrorTmpl from './Error.tmpl.ts';
-import styles from './Error.module.less';
+import {template} from "./Error.tmpl.ts";
+import styles from "./Error.module.less";
+import Block from "../../Utils/Block.ts";
+import {Link} from "../../Components/";
 
-const Error = (title: string, subtitle: string) => {
-    const template = Handlebars.compile(ErrorTmpl);
+type ErrorProps = {
+    title: string,
+    subtitle: string
+}
 
-    return template({
-        wrapperClass: styles.wrapper,
-        titleText: title,
-        subtitleText: subtitle,
-        titleClass: styles.title,
-        subtitleClass: styles.subtitle
-    });
-};
+class Error extends Block {
+    constructor(props: ErrorProps) {
+
+        const link = new Link({
+            children: "Назад к чатам",
+            href: "/chat"
+        });
+        
+        super({
+            wrapperClass: styles.wrapper,
+            titleText: props.title,
+            subtitleText: props.subtitle,
+            titleClass: styles.title,
+            subtitleClass: styles.subtitle,
+            link
+        });
+    }
+
+    render() {
+        return this.compile(template, {
+            ...this.props
+        });
+    }
+}
 
 export default Error;

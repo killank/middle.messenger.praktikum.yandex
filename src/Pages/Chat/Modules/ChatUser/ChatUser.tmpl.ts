@@ -1,4 +1,4 @@
-export default `
+export const template = `
     <div class="{{wrapperClass}}">
         <div class="{{avatarClass}}">
 

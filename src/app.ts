@@ -1,42 +1,56 @@
-import './app.less';
-import Chat from './Pages/Chat/Chat';
-import Error from './Pages/Error/Error';
-import Links from './Pages/Links/Links';
-import Login from './Pages/Login/Login';
-import Profile from './Pages/Profile/Profile';
-import Registration from './Pages/Registration/Registration';
+import "./app.less";
+import Chat from "./Pages/Chat/Chat";
+import Error from "./Pages/Error/Error";
+import Links from "./Pages/Links/Links";
+import Login from "./Pages/Login/Login";
+import Profile from "./Pages/Profile/Profile";
+import Registration from "./Pages/Registration/Registration";
+import Block from "./Utils/Block";
+import renderDOM from "./Utils/renderDOM";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const root = document.querySelector<HTMLDivElement>('#app')!;
-    let page: string;
+document.addEventListener("DOMContentLoaded", () => {
+    let page: Block;
     const location = window.location.pathname;
 
     switch (location) {
-        case '/':
-            page = Links();
+        case "/":
+            page = new Links();
+            renderDOM("#app", page);
             break;
-        case '/login':
-            page = Login();
+        case "/login":
+            page = new Login();
+            renderDOM("#app", page);
             break;
-        case '/registration':
-            page = Registration();
+        case "/registration":
+            page = new Registration();
+            renderDOM("#app", page);
             break;
-        case '/profile':
-            page = Profile();
+        case "/profile":
+            page = new Profile();
+            renderDOM("#app", page);
             break;
-        case '/chat':
-            page = Chat();
+        case "/chat":
+            page = new Chat();
+            renderDOM("#app", page);
             break;
-        case '/500':
-            page = Error("500", "Мы уже фиксим");
+        case "/500":
+            page = new Error({
+                title: "500",
+                subtitle: "Мы уже фиксим"
+            });
+            renderDOM("#app", page);
             break;
-        case '/404':
-            page = Error("404", "Не туда попали");
+        case "/404":
+            page = new Error({
+                title: "404",
+                subtitle: "Не туда попали"
+            });
+            renderDOM("#app", page);
             break;
         default:
-            page = Error("404", "Не туда попали");
+            page = new Login();
+            renderDOM("#app", page);
             break;
     }
-
-    root.innerHTML = page;
+    
 });
