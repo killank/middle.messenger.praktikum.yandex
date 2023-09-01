@@ -60,11 +60,15 @@ class WebSockets extends EventBus {
         });
 
         this.socket.addEventListener("message", (message) => {
-            const data = JSON.parse(message.data);
-            if (data.type && data.type === "pong") {
-                return;
+            try {
+                const data = JSON.parse(message.data);
+                if (data.type && data.type === "pong") {
+                    return;
+                }
+                this.emit(WebSocketsEvents.Message, data);
+            } catch (error) {
+                console.log(error);
             }
-            this.emit(WebSocketsEvents.Message, data);
         });
     }
     

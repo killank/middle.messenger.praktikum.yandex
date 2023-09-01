@@ -14,7 +14,12 @@ class UserController {
     }
 
     async changeAvatar(data: iParams.iChangeAvatar) {
-        await this.api.changeAvatar(data);
+        await this.api.changeAvatar(data).then((result) => {
+            console.log("result", result);
+            Store.set("user", null);
+            Store.set("user", result);
+        });
+        
     }
 
     async changePassword(data: iParams.iChangePassword) {

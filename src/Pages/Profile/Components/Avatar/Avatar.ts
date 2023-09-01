@@ -11,6 +11,7 @@ class Avatar extends Block {
     constructor(props: AvatarProps) {
 
         super({
+            ...props,
             avatarClass: styles.avatar,
             spanClass: styles.span,
             avatar: props.avatar
