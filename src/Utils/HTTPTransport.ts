@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 type Options = {
     headers?: Record<string, string>;
     method?: string;
@@ -7,7 +5,7 @@ type Options = {
     timeout?: number;
 }
 
-type HTTPMethod = (url: string, options?: Options) => Promise<unknown>
+type HTTPMethod = (url: string, data?: unknown) => Promise<Response>
 
 const METHODS: Record<string, string> = {
     GET: "GET",
@@ -23,43 +21,50 @@ function queryStringify(data: Record<string, unknown>) {
 }
 
 export class HTTPTransport {
-    get: HTTPMethod = (url, options) => {
+    static API_URL = "https://ya-praktikum.tech/api/v2";
+
+    get: HTTPMethod = (url, data) => {
         return this.request(
-            url,
-            {...options,
-                method: METHODS.GET},
-            options?.timeout
+            HTTPTransport.API_URL + url,
+            {
+                data,
+                method: METHODS.GET
+            }
         );
     };
 
-    post: HTTPMethod = (url, options) => {
+    post: HTTPMethod = (url, data) => {
         return this.request(
-            url,
-            {...options,
-                method: METHODS.POST},
-            options?.timeout
+            HTTPTransport.API_URL + url,
+            {
+                data,
+                method: METHODS.POST
+            }
         );
     };
 
-    put: HTTPMethod = (url, options) => {
+    put: HTTPMethod = (url, data) => {
         return this.request(
-            url,
-            {...options,
-                method: METHODS.PUT},
-            options?.timeout
+            HTTPTransport.API_URL + url,
+            {
+                data,
+                method: METHODS.PUT
+            }
         );
     };
 
-    delete: HTTPMethod = (url, options) => {
+    delete: HTTPMethod = (url, data) => {
         return this.request(
-            url,
-            {...options,
-                method: METHODS.DELETE},
-            options?.timeout
+            HTTPTransport.API_URL + url,
+            {
+                data,
+                method: METHODS.DELETE
+            }
+
         );
     };
 
-    request = (url: string, options: Options = {}, timeout = 5000) => {
+    request = (url: string, options: Options = {}): Promise<Response> => {
         const {method = METHODS.GET, data, headers = {}} = options;
 
         return new Promise((resolve, reject) => {
@@ -71,25 +76,38 @@ export class HTTPTransport {
 
             const xhr = new XMLHttpRequest();
             xhr.open(method, requestUrl);
-            
-            Object.keys(headers).forEach((key) => {
-                xhr.setRequestHeader(key, headers[key]);
-            });
 
-            xhr.onload = function() {
-                resolve(xhr);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState !== 4) {
+                    return;
+                }
+                if (xhr.status < 400) {
+                    resolve(xhr.response);
+                } else {
+                    reject(xhr.response);
+                }
             };
 
             xhr.onabort = reject;
             xhr.onerror = reject;
-            xhr.timeout = timeout;
             xhr.ontimeout = reject;
+
+            Object.keys(headers).forEach((key) => {
+                xhr.setRequestHeader(key, headers[key]);
+            });
+
+            xhr.withCredentials = true;
+            xhr.responseType = "json";
 
             if (method === METHODS.GET || !data) {
                 xhr.send();
+            } else if (data instanceof FormData) {
+                xhr.send(data);
             } else {
+                xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.send(JSON.stringify(data));
             }
         });
+        
     };
 }

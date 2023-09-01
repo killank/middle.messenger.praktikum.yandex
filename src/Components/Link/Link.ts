@@ -4,7 +4,8 @@ import Block from "../../Utils/Block.ts";
 
 type LinkProps = {
     children: string,
-    href: string
+    href: string,
+    events?: Record<string, (event: Event) => void>,
 }
 
 class Link extends Block {

@@ -13,7 +13,7 @@ class Error extends Block {
 
         const link = new Link({
             children: "Назад к чатам",
-            href: "/chat"
+            href: "/messenger"
         });
         
         super({

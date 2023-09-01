@@ -20,4 +20,18 @@ const validate = (event: Event): void => {
     });
 };
 
+export const validatePasswords = (password: string, password_repeat: string, field: string) => {
+    const errorMessage = validateData({["password"]: password,
+        ["password_repeat"]: password_repeat});
+
+    if (errorMessage) {
+        const errorSpan = document.querySelectorAll(`[field="${field}"]`)[0];
+        errorSpan.textContent = errorMessage;
+    } else {
+        const errorSpan = document.querySelectorAll(`[field="${field}"]`)[0];
+        errorSpan.textContent = "";
+    }
+    return errorMessage;
+};
+
 export default validate;
