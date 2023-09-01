@@ -1,10 +1,10 @@
 export const template = `
     <div class="{{wrapperClass}}">
+        {{{closeButton}}}
+        <h2 class="{{titleClass}}">
+            {{titleText}}
+        </h2>
         <form class="{{formClass}}">
-            {{{closeButton}}}
-            <h2 class="{{titleClass}}">
-                {{titleText}}
-            </h2>
             {{{chatAddInput}}}
             {{{button}}}
         </form>

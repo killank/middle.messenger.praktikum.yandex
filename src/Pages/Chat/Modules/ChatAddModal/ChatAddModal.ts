@@ -42,6 +42,7 @@ class ChatAddModal extends Block {
                 }
             }
         });
+
         super({
             titleText: props.title,
             formClass: styles.form,
@@ -51,13 +52,15 @@ class ChatAddModal extends Block {
             chatAddInput,
             closeButton
         });
+
     }
 
-    render() {
+    render() {        
         return this.compile(template, {
             ...this.props
         });
     }
+    
 }
 
 export default ChatAddModal;
