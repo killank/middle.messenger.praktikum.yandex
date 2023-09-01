@@ -240,7 +240,7 @@ class Profile extends Block {
         });
     }
 
-    componentDidUpdate(oldProps: any, newProps: any): boolean {
+    componentDidUpdate(_: any, newProps: any): boolean {
         const urlResources = "https://ya-praktikum.tech/api/v2/resources";
         if (newProps?.user) {
             const avatar = this.children.profileAvatar as Block;
