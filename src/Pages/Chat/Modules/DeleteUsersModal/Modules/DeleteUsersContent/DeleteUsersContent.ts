@@ -48,7 +48,7 @@ class DeleteUsersContent extends Block {
         }
     }
 
-    componentDidUpdate(oldProps: any, newProps: any): boolean {
+    componentDidUpdate(_: any, newProps: any): boolean {
         this.children.chatUsers = this.createUsersComponent(newProps.chatUsers);
         return true;
     }
