@@ -125,7 +125,7 @@ class ChatWindow extends Block {
         });
     }
 
-    componentDidUpdate(oldProps: any, newProps: any): boolean {
+    componentDidUpdate(_: any, newProps: any): boolean {
         if (newProps?.chat) {
             this.props.title = newProps.chat.title;
         }

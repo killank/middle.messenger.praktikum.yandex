@@ -36,7 +36,7 @@ class ChatList extends Block {
         
     }
 
-    componentDidUpdate(oldProps: ChatListProps, newProps: ChatListProps): boolean {
+    componentDidUpdate(_: ChatListProps, newProps: ChatListProps): boolean {
         if (isArray(newProps)) return false;
 
         this.children.chatsUser = newProps.chats.map((chat) => {

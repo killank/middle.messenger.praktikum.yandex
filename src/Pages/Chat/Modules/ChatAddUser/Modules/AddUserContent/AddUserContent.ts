@@ -61,7 +61,7 @@ class AddUserContent extends Block {
         }
     }
 
-    componentDidUpdate(oldProps: any, newProps: any): boolean {
+    componentDidUpdate(_: any, newProps: any): boolean {
         this.children.users = this.createUsersComponent(newProps.users);
         return true;
     }
