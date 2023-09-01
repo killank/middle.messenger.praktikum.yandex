@@ -20,6 +20,7 @@
         "no-undef": "off",
         "@typescript-eslint/no-var-requires": 0,
         "semi": "warn",
+        "@typescript-eslint/no-explicit-any": "off",
         "semi-spacing": [
             "warn",
             {
@@ -65,7 +66,7 @@
         "require-await": "warn",
         "vars-on-top": "warn",
         "no-restricted-globals": "warn",
-        "no-use-before-define": "error",
+        "no-use-before-define": "off",
         "no-mixed-requires": "warn",
         "camelcase": "off",
         "brace-style": "warn",
@@ -81,7 +82,8 @@
         "newline-per-chained-call": "warn",
         "no-array-constructor": "warn",
         "no-bitwise": "warn",
-        "no-continue": "warn",
+        "no-continue": "off",
+        "@typescript-eslint/no-namespace": "off",
         "no-mixed-operators": "warn",
         "no-mixed-spaces-and-tabs": "warn",
         "no-multi-assign": "warn",
