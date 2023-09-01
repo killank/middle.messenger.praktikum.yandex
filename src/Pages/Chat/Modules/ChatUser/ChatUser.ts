@@ -14,13 +14,16 @@ type ChatUserProps = {
 }
 
 class ChatUser extends Block {
+
     constructor(props: ChatUserProps) {
+        const urlResources = "https://ya-praktikum.tech/api/v2/resources";
+
         super({
             ...props,
             title: props.title,
             last_message: props.last_message && props.last_message.content,
             wrapperClass: styles.wrapper,
-            avatar: props.avatar,
+            avatar: props.avatar ? `${urlResources}/${props.avatar}` : null,
             time: props.last_message && props.last_message.time,
             unread_count: props.unread_count,
             avatarClass: styles.avatar,

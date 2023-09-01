@@ -1,7 +1,9 @@
 export const template = `
     <div class="{{wrapperClass}}">
         <div class="{{avatarClass}}">
-
+            {{#if avatar}}
+                <img src="{{avatar}}" alt="Avatar" class="{{avatarClass}}"/>
+            {{/if}}
         </div>
         <div class="{{textClass}}">
             <div class="{{titleBlockClass}}">

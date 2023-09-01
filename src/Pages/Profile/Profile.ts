@@ -13,10 +13,15 @@ import Notification from "../../Components/Notification/Notification.ts";
 import AvatarModal from "./Components/AvatarModal/AvatarModal.ts";
 import Avatar from "./Components/Avatar/Avatar.ts";
 import Image from "../../Icons/Image.svg";
+import {User} from "../../types.ts";
+
+type ProfileProps = {
+    user: User
+}
 
 class Profile extends Block {
     
-    constructor() {
+    constructor(props: ProfileProps) {
         const urlResources = "https://ya-praktikum.tech/api/v2/resources";
 
         const avatarModal = new AvatarModal({
@@ -145,7 +150,7 @@ class Profile extends Block {
         const profileAvatar = new Avatar({
             avatar: Image,
             events: {
-                click: (event) => {
+                click: (event: Event) => {
                     event.preventDefault();
                     avatarModal.show();
                 }
@@ -208,6 +213,7 @@ class Profile extends Block {
         });
 
         super({
+            ...props,
             wrapperClass: styles.wrapper,
             leftColClass: styles["left-col"],
             rightColClass: styles["right-col"],
@@ -232,6 +238,15 @@ class Profile extends Block {
             avatarModal,
             profileAvatar
         });
+    }
+
+    componentDidUpdate(oldProps: any, newProps: any): boolean {
+        const urlResources = "https://ya-praktikum.tech/api/v2/resources";
+        if (newProps?.user) {
+            const avatar = this.children.profileAvatar as Block;
+            avatar.setProps({avatar: `${urlResources}/${newProps.user.avatar}`});
+        }
+        return true;
     }
 
     render() {
