@@ -1,6 +1,6 @@
 import validateData from "./validateData";
 
-const submit = (event: Event): void => {
+const submit = (event: Event) => {
     event.preventDefault();
     const inputs = (<HTMLElement>(<HTMLElement>event.target).parentNode).querySelectorAll("input");
     const values: Record<string, string> = {};
@@ -22,7 +22,8 @@ const submit = (event: Event): void => {
         }
     });
     
-    console.log("form values", values);
+    return {errors,
+        values};
 };
 
 export default submit;

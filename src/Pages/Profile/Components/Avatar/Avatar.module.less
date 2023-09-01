@@ -1,0 +1,38 @@
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 65px;
+    background-color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar:hover {
+    background-color: #888;
+}
+
+.avatar .span {
+    position: absolute;
+    display: block;
+    top: 70%;
+    left: 22%;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    color: #fefefe;
+    transition: all .2s ease-in-out;
+}
+
+.avatar:hover .span {
+    opacity: 1;
+}
+
+.avatar img {
+    height: 100%;
+    width: 100%;
+    border-radius: 65px;
+}
