@@ -1,12 +1,14 @@
 export const template = `
     <div class="{{wrapperClass}}">
         <div class="{{avatarClass}}">
-
+            {{#if avatar}}
+                <img src="{{avatar}}" alt="Avatar" class="{{avatarClass}}"/>
+            {{/if}}
         </div>
         <div class="{{textClass}}">
             <div class="{{titleBlockClass}}">
-                <span class="{{userClass}}">
-                    {{user}}
+                <span class="{{titleClass}}">
+                    {{title}}
                 </span>
                 <span class="{{timeClass}}">
                     {{time}}
@@ -16,9 +18,9 @@ export const template = `
                 <span class="{{messageClass}}">
                     {{last_message}}
                 </span>
-                {{#if new_messages}}
-                    <div class="{{newMessagesClass}}">
-                        {{new_messages}}
+                {{#if unread_count}}
+                    <div class="{{unreadCountClass}}">
+                        {{unread_count}}
                     </div>
                 {{/if}}
             </div>

@@ -26,6 +26,8 @@ export default class Block {
 
     private eventBus: () => EventBus;
 
+    private _setUpdate: boolean = false;
+
     constructor(childrenAndProps: Props = {}) {
         const eventBus = new EventBus();
         const {props, children} = this.getChildren(childrenAndProps);
@@ -77,7 +79,7 @@ export default class Block {
     public componentDidMount() {}
 
     public dispatchComponentDidMount() {
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 
     private _componentDidUpdate(oldProps: any, newProps: any) {
@@ -90,13 +92,29 @@ export default class Block {
         return true;
     }
 
-    public setProps = (nextProps:Props) => {
+    public setProps(nextProps: unknown) {
         if (!nextProps) {
             return;
         }
 
-        Object.assign(this.props, nextProps);
-    };
+        this._setUpdate = true;
+        const oldValue = {...this.props};
+
+        const {children, props} = this.getChildren(nextProps);
+
+        if (Object.values(children).length) {
+            Object.assign(this.children, children);
+        }
+
+        if (Object.values(props).length) {
+            Object.assign(this.props, props);
+        }
+
+        if (this._setUpdate) {
+            this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldValue, this.props);
+            this._setUpdate = false;
+        }
+    }
 
     get element() {
         return this._element;
@@ -174,12 +192,15 @@ export default class Block {
     private _makePropsProxy(props: Record<string, any>): Record<string, any> {
         const proxySetting = {
             get: (target: Record<string, any>, prop: string): unknown => {
-                return target[prop];
+                const value = target[prop];
+                return typeof value === "function" ? value.bind(target) : value;
             },
-            set: (target: Record<string, any>, prop: string, value: unknown,): boolean => {
-                const oldProps = target[prop];
-                target[prop] = value;
-                this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, target[prop]);
+            set: (target: Record<string, any>, prop: string, value: unknown): boolean => {
+                if (target[prop] !== value) {
+                    const oldProps = target[prop];
+                    target[prop] = value;
+                    this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, target[prop]);
+                }
                 return true;
             },
             deleteProperty() {

@@ -11,6 +11,7 @@ type InputOnlyProps = {
 }
 
 class InputOnly extends Block {
+
     constructor(props: InputOnlyProps) {
         super(props);
     }

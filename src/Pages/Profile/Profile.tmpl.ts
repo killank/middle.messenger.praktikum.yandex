@@ -1,19 +1,16 @@
 import BackArrow from "../../Icons/BackArrow.svg";
-import Image from "../../Icons/Image.svg";
 
 export const template = `
     <main>
         <div class="{{wrapperClass}}">
             <div class="{{leftColClass}}">
-                <a href="/chat">
+                <a href="/messenger">
                     <img src="${BackArrow}" alt="Back arrow">
                 </a>
             </div>
             <div class="{{rightColClass}}">
                 <div class="{{avatarBlockClass}}">
-                    <div class="{{avatarClass}}">
-                        <img src="${Image}" alt="Avatar">
-                    </div>
+                    {{{profileAvatar}}}
                     {{{link}}}
                 </div>
                 <div class="{{editComponentClass}}">
@@ -35,5 +32,8 @@ export const template = `
                 </div>
             </div>
         </div>
+        {{{passwordNotification}}}
+        {{{profileNotification}}}
+        {{{avatarModal}}}
     </main>
 `;

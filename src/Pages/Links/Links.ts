@@ -15,15 +15,15 @@ class Links extends Block {
         });
         const linkLogin = new Link({
             children: "Логин",
-            href: "/login"
+            href: "/"
         });
         const linkReg = new Link({
             children: "Регистрация",
-            href: "/registration"
+            href: "/sign-up"
         });
         const linkProf = new Link({
             children: "Профиль",
-            href: "/profile"
+            href: "/settings"
         });
         const linkChat = new Link({
             children: "Чат",

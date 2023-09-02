@@ -1,56 +1,35 @@
 import "./app.less";
 import Chat from "./Pages/Chat/Chat";
 import Error from "./Pages/Error/Error";
-import Links from "./Pages/Links/Links";
 import Login from "./Pages/Login/Login";
 import Profile from "./Pages/Profile/Profile";
 import Registration from "./Pages/Registration/Registration";
-import Block from "./Utils/Block";
-import renderDOM from "./Utils/renderDOM";
+import router from "./Utils/Router";
+
+const PATHS = {
+    login: "/",
+    registration: "/sign-up",
+    profile: "/settings",
+    chat: "/messenger",
+    E500: "/500",
+    E404: "/404",
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-    let page: Block;
-    const location = window.location.pathname;
 
-    switch (location) {
-        case "/":
-            page = new Links();
-            renderDOM("#app", page);
-            break;
-        case "/login":
-            page = new Login();
-            renderDOM("#app", page);
-            break;
-        case "/registration":
-            page = new Registration();
-            renderDOM("#app", page);
-            break;
-        case "/profile":
-            page = new Profile();
-            renderDOM("#app", page);
-            break;
-        case "/chat":
-            page = new Chat();
-            renderDOM("#app", page);
-            break;
-        case "/500":
-            page = new Error({
-                title: "500",
-                subtitle: "Мы уже фиксим"
-            });
-            renderDOM("#app", page);
-            break;
-        case "/404":
-            page = new Error({
-                title: "404",
-                subtitle: "Не туда попали"
-            });
-            renderDOM("#app", page);
-            break;
-        default:
-            page = new Login();
-            renderDOM("#app", page);
-            break;
-    }
+    router
+        .use(PATHS.login, Login)
+        .use(PATHS.registration, new Registration())
+        .use(PATHS.chat, new Chat())
+        .use(PATHS.profile, Profile)
+        .use(PATHS.E500, new Error({
+            title: "500",
+            subtitle: "Мы уже фиксим"
+        }))
+        .use(PATHS.E404, new Error({
+            title: "404",
+            subtitle: "Мы уже фиксим"
+        }))
+        .start();
     
 });

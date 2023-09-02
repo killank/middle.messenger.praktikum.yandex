@@ -1,32 +1,39 @@
 import {template} from "./ChatUser.tmpl.ts";
 import styles from "./ChatUser.module.less";
 import Block from "../../../../Utils/Block.ts";
+import {LastMessage} from "../../../../types.ts";
 
 type ChatUserProps = {
-    user: string,
-    last_message: string,
-    avatar: string,
-    time: string,
-    new_messages: number
+    avatar?: string,
+    created_by: number,
+    id: number,
+    last_message: LastMessage,
+    title: string,
+    unread_count: number,
+    events?: Record<string, (event: Event) => void>,
 }
 
 class ChatUser extends Block {
+
     constructor(props: ChatUserProps) {
+        const urlResources = "https://ya-praktikum.tech/api/v2/resources";
+
         super({
-            user: props.user,
-            last_message: props.last_message,
+            ...props,
+            title: props.title,
+            last_message: props.last_message && props.last_message.content,
             wrapperClass: styles.wrapper,
-            avatar: props.avatar,
-            time: props.time,
-            new_messages: props.new_messages,
+            avatar: props.avatar ? `${urlResources}/${props.avatar}` : null,
+            time: props.last_message && props.last_message.time,
+            unread_count: props.unread_count,
             avatarClass: styles.avatar,
             textClass: styles.text,
             titleBlockClass: styles["title-block"],
-            userClass: styles.user,
+            titleClass: styles.title,
             timeClass: styles.time,
             messageBlockClass: styles["message-block"],
             messageClass: styles.message,
-            newMessagesClass: styles["new-messages"]
+            unreadCountClass: styles["unread-count"]
         }); 
     }
 

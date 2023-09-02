@@ -4,10 +4,12 @@ type UserData = {
     login?: string;
     email?: string;
     password?: string;
+    password_repeat?: string;
     phone?: string;
     message?: string;
     oldPassword?: string;
     newPassword?: string;
+    newPasswordRepeat?: string;
 }
   
 function isValidName(name: string): boolean {
@@ -62,8 +64,24 @@ function validateData (data: UserData): string {
         error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
     }
 
+    if (data.password_repeat !== undefined && !isValidPassword(data.password_repeat)) {
+        error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
+    }
+
+    if (data.password_repeat !== undefined && data.password !== undefined && data.password !== data.password_repeat) {
+        error = "Пароли не совпадают";
+    }
+
     if (data.newPassword !== undefined && !isValidPassword(data.newPassword)) {
         error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
+    }
+
+    if (data.newPasswordRepeat !== undefined && !isValidPassword(data.newPasswordRepeat)) {
+        error = "Пароль должен содержать от 8 до 40 символов и хотя бы одну заглавную букву и цифру.";
+    }
+
+    if (data.newPasswordRepeat !== undefined && data.newPassword !== undefined && data.newPassword !== data.newPasswordRepeat ) {
+        error = "Пароли не совпадают";
     }
 
     if (data.oldPassword !== undefined && !isValidPassword(data.oldPassword)) {
