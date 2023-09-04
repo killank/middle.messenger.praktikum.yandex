@@ -1,6 +1,6 @@
 import {expect} from "chai";
 
-describe("Тест Router", () => {
+describe("Тест: Router", () => {
     it("Change route", () => {
         window.history.pushState({page: "Register"}, "Register", "/sign-up");
         window.history.pushState({page: "Auth"}, "Auth", "/");
