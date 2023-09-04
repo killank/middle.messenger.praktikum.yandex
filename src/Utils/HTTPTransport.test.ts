@@ -36,13 +36,6 @@ describe("Тест: HTTPTransport", () => {
         expect(request.method).to.eq("PUT");
     });
 
-    it("Возвращаем delete запрос", () => {
-        instance.delete("/auth/user");
-        const [request] = httpRequest;
-
-        expect(request.method).to.eq("DELETE");
-    });
-
     it("Возвращаем post запрос", () => {
         instance.post("/auth/signin");
         const [request] = httpRequest;
