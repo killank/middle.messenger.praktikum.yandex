@@ -10,7 +10,8 @@
     "start": "tsc && vite build && node server.cjs",
     "lint": "tsc --noEmit && eslint \"./src/**/*.ts\"",
     "test": "mocha --require ts-node/register --require ./mochaSetup.cjs './src/**/*.test.ts'",
-    "precommit": "npm run test && npm run lint"
+    "precommit": "npm run test && npm run lint",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",
