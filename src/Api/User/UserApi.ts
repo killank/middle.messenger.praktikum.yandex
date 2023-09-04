@@ -1,5 +1,5 @@
-import {HTTPTransport} from "../../Utils/HTTPTransport";
-import User from "./endpoints";
+import {HTTPTransport} from "../../Utils/HTTPTransport.ts";
+import User from "./endpoints.ts";
 import {iParams} from "./types";
 
 class UserApi {

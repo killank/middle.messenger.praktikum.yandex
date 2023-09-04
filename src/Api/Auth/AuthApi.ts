@@ -1,5 +1,5 @@
-import {HTTPTransport} from "../../Utils/HTTPTransport";
-import Auth from "./endpoints";
+import {HTTPTransport} from "../../Utils/HTTPTransport.ts";
+import Auth from "./endpoints.ts";
 import {iParams} from "./types";
 
 class AuthAPI {
