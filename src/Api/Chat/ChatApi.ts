@@ -1,5 +1,5 @@
-import {HTTPTransport} from "../../Utils/HTTPTransport";
-import Chat from "./endpoints";
+import {HTTPTransport} from "../../Utils/HTTPTransport.ts";
+import Chat from "./endpoints.ts";
 import {iParams} from "./types";
 
 class ChatApi {

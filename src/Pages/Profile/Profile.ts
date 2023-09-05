@@ -176,7 +176,9 @@ class Profile extends Block {
                         }).then(() => {
                             AuthController.getUser();
                             const inputs = (<HTMLElement>(<HTMLElement>event.target).parentNode).querySelectorAll("input");
-                            inputs.forEach((input) => input.value = "");
+                            inputs.forEach((input) => {
+                                input.value = "";
+                            });
                             passwordNotification.show();
 
                         })

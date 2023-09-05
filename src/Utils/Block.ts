@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-use-before-define */
 import {v4 as uuid} from "uuid";
-import EventBus from "./EventBus";
+import EventBus from "./EventBus.ts";
 import Handlebars from "handlebars";
 
 type Props = Record<string, any>;

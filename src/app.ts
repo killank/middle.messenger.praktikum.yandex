@@ -1,10 +1,10 @@
 import "./app.less";
-import Chat from "./Pages/Chat/Chat";
-import Error from "./Pages/Error/Error";
-import Login from "./Pages/Login/Login";
-import Profile from "./Pages/Profile/Profile";
-import Registration from "./Pages/Registration/Registration";
-import router from "./Utils/Router";
+import Chat from "./Pages/Chat/Chat.ts";
+import Error from "./Pages/Error/Error.ts";
+import Login from "./Pages/Login/Login.ts";
+import Profile from "./Pages/Profile/Profile.ts";
+import Registration from "./Pages/Registration/Registration.ts";
+import router from "./Utils/Router.ts";
 
 const PATHS = {
     login: "/",
